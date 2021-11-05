@@ -26,7 +26,7 @@ dependency "vpc" {
 
 inputs = {
   namespace       = "eg"
-  stage           = "${local.env}"
+  stage           = "test"
   name            = "efs-test"
   region          = "${local.region}"
   vpc_id          = dependency.vpc.outputs.vpc_id
