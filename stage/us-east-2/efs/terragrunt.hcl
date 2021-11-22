@@ -20,15 +20,19 @@ include {
   path = find_in_parent_folders()
 }
 
-dependency "vpc" {
-  config_path = "../vpc"
+dependency "data" {
+ config_path = "data/"
 }
+
+#dependency "vpc" {
+#  config_path = "../vpc"
+#}
 
 inputs = {
   namespace       = "eg"
   stage           = "test"
   name            = "efs-test"
   region          = "${local.region}"
-  vpc_id          = dependency.vpc.outputs.vpc_id
-  subnets         = dependency.vpc.outputs.private_subnets
+  vpc_id          = dependency.data.outputs.vpc_id
+  subnets         = dependency.data.outputs.subnets
 }
